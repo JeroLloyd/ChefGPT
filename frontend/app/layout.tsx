@@ -49,20 +49,11 @@ export default function RootLayout({
           `}
         >
           {/* HEADER */}
-          <header className="flex justify-end items-center p-4 gap-4 h-16 border-b border-gray-800">
-            <SignedOut>
-              <SignInButton mode="modal" />
-              <SignUpButton mode="modal">
-                <button className="bg-[#6c47ff] hover:bg-[#5936d6] transition text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-5">
-                  Sign Up
-                </button>
-              </SignUpButton>
-            </SignedOut>
-
-            <SignedIn>
-              <UserButton afterSignOutUrl="/" />
-            </SignedIn>
-          </header>
+<header className="flex justify-end items-center p-4 gap-4 h-16 border-b border-gray-800">
+  <SignedIn>
+    <UserButton afterSignOutUrl="/" />
+  </SignedIn>
+</header>
 
           {/* MAIN */}
           <main className="min-h-screen flex flex-col">
