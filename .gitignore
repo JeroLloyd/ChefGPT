@@ -1,2 +1,9 @@
+# Ignore keys and environment files
 .env
 .env.local
+
+# Ignore heavy dependencies
+node_modules/
+venv/
+__pycache__/
+.DS_Store
