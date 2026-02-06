@@ -24,7 +24,7 @@ const geistMono = Geist_Mono({
 // ---------------- METADATA ----------------
 export const metadata: Metadata = {
   title: {
-    default: 'Your App Name',
+    default: 'SparkAi',
     template: '%s | Your App Name',
   },
   description: 'AI-powered platform.',
