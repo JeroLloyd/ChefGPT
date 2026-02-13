@@ -1,36 +1,26 @@
 import type { Metadata } from 'next'
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from '@clerk/nextjs'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { ClerkProvider } from '@clerk/nextjs'
+// 1. CHANGE: Import Inter instead of Poppins
+import { Inter, Geist_Mono } from 'next/font/google' 
 import './globals.css'
 
-// ---------------- FONTS ----------------
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+// 2. CHANGE: Configure Inter
+const inter = Inter({
+  variable: '--font-sans', // usage: var(--font-sans)
   subsets: ['latin'],
+  display: 'swap',
 })
 
 const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+  variable: '--font-mono',
   subsets: ['latin'],
 })
 
-// ---------------- METADATA ----------------
 export const metadata: Metadata = {
-  title: {
-    default: 'SparkAi',
-    template: '%s | Your App Name',
-  },
-  description: 'AI-powered platform.',
+  title: 'CHEFgpt | AI Kusina Assistant',
+  description: 'Your resourceful Pinoy cooking companion.',
 }
 
-// ---------------- LAYOUT ----------------
 export default function RootLayout({
   children,
 }: {
@@ -41,22 +31,13 @@ export default function RootLayout({
       <html lang="en">
         <body
           className={`
-            ${geistSans.variable}
+            ${inter.variable} 
             ${geistMono.variable}
             antialiased
-            bg-gray-950
-            text-white
+            bg-background text-text-main
           `}
         >
-          {/* HEADER */}
-<header className="flex justify-end items-center p-4 gap-4 h-16 border-b border-gray-800">
-  <SignedIn>
-    <UserButton afterSignOutUrl="/" />
-  </SignedIn>
-</header>
-
-          {/* MAIN */}
-          <main className="min-h-screen flex flex-col">
+          <main className="h-screen flex flex-col overflow-hidden">
             {children}
           </main>
         </body>

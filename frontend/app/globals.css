@@ -1,26 +1,43 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* 1. CHANGE: Update font mapping to use the new variable */
+  --font-sans: var(--font-sans); 
+  --font-mono: var(--font-mono);
+  
+  /* Semantic Colors (Kept from previous approved design) */
+  --color-background: #09090b; 
+  --color-surface: #18181b;    
+  --color-surface-hover: #27272a;
+  --color-border: #27272a;
+  
+  --color-primary: #f97316;    
+  --color-primary-fg: #ffffff;
+  
+  --color-text-main: #fafafa;  
+  --color-text-muted: #a1a1aa; 
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base Styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-main);
+  /* 2. CHANGE: Ensure font-family uses the variable */
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar (Kept same) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
 }
